@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "mocha": "^10.4.0",
+    "selenium-webdriver": "^4.20.0"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "name": "selenium-practice",
+  "version": "1.0.0",
+  "main": "test.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

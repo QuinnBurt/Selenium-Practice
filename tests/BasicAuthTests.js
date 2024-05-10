@@ -6,8 +6,15 @@ describe ('Basic Auth', async () => {
 
     it('2A: Should accept correct username and pass', async () => {
         let driver = await page.startDriver(page.baPositiveUrl);
-        assert(await driver.findElement(By.css(page.baAuthText)));
+        try{
+            await driver.findElement(By.css(page.baAuthText))
+            var authorized = true;
+        }
+        catch(err){
+            var authorized = false;
+        }
         await driver.quit();
+        assert(authorized);
     });
 
     it('2B: Should not accept incorrect username and pass', async () => {
@@ -19,8 +26,8 @@ describe ('Basic Auth', async () => {
         catch(err){
             var authDenied = true;
         }
-        assert(authDenied);
         await driver.quit();
+        assert(authDenied);
     });
 
 });

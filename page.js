@@ -1,4 +1,6 @@
 const { Builder, Browser } = require('selenium-webdriver');
+const Chrome = require('selenium-webdriver/chrome');
+const options = new Chrome.Options();
 
 module.exports = {
     //urls
@@ -9,6 +11,8 @@ module.exports = {
     cmUrl: 'https://the-internet.herokuapp.com/context_menu',
     ddUrl: 'https://the-internet.herokuapp.com/drag_and_drop',
     eaUrl: 'https://the-internet.herokuapp.com/entry_ad',
+    lpUrl: 'https://the-internet.herokuapp.com/login',
+    lpSecureUrl: 'https://the-internet.herokuapp.com/secure',
 
     //locators by page
     //add/remove locators
@@ -35,9 +39,18 @@ module.exports = {
     eaModal: '.modal',
     eaModalClose: '.modal-footer > p:nth-child(1)',
 
+    //login page locators/etc
+    lpUsername: '#username',
+    lpPassword: '#password',
+    lpLoginButton: '.radius',
+    lpLogoutButton: '.button.secondary.radius',
+    lpFlashError: '#flash',
+    lpCorrectUser: 'tomsmith',
+    lpCorrectPass: 'SuperSecretPassword!',
+
     //functions
     startDriver : async function(url) {
-        let driver = await new Builder().forBrowser(Browser.CHROME).build();
+        let driver = await new Builder().forBrowser('chrome').setChromeOptions(options.addArguments('--headless=new')).build();
         await driver.get(url);
         return driver;
     }

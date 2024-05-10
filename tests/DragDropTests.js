@@ -18,8 +18,8 @@ describe ('Drag and Drop', async () => {
             .click()
             .perform();
         let boxAText = await driver.findElement(By.css(page.ddBoxAText)).getText();
-        assert(boxAText == 'B');
         await driver.quit();
+        assert(boxAText == 'B');
     });
 
     it ('5B: Should drag the B block onto the A block', async () => {
@@ -36,8 +36,8 @@ describe ('Drag and Drop', async () => {
             .click()
             .perform();
         let boxBText = await driver.findElement(By.css(page.ddBoxBText)).getText();
-        assert(boxBText == 'A');
         await driver.quit();
+        assert(boxBText == 'A');
     });
 
     it ('5C: Should drag repeatedly', async () => {
@@ -64,7 +64,7 @@ describe ('Drag and Drop', async () => {
             .click()
             .perform();
         let boxBText = await driver.findElement(By.css(page.ddBoxBText)).getText();
-        assert(boxAText && boxBText == 'B');
         await driver.quit();
+        assert(boxAText && boxBText == 'B');
     });
 });

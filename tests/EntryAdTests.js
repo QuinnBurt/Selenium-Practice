@@ -14,8 +14,8 @@ describe ('Entry Ad', async () => {
         catch(err){
             var modalPresent = false;
         }
-        assert(modalPresent);
         await driver.quit();
+        assert(modalPresent);
     });
 
     it ('6B: Should close the modal window', async () => {
@@ -32,8 +32,8 @@ describe ('Entry Ad', async () => {
             .pause(200)
             .perform()
         let modalDisplayed = await modal.isDisplayed();
-        assert(!modalDisplayed);
         await driver.quit();
+        assert(!modalDisplayed);
     });
 
     it ('6C: Should not open the modal window on refresh if closed previously', async () => {
@@ -50,7 +50,7 @@ describe ('Entry Ad', async () => {
         await driver.navigate().refresh();
         let modal = await driver.findElement(By.css(page.eaModal));
         let modalDisplayed = await modal.isDisplayed();
-        assert(!modalDisplayed);
         await driver.quit();
+        assert(!modalDisplayed);
     });
 });

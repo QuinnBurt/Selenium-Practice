@@ -8,9 +8,15 @@ describe ('Add/Remove Elements', async () => {
         let driver = await page.startDriver(page.arUrl);
         await driver.findElement(By.css(page.arAddButton)).click();
         await driver.wait(until.elementLocated(By.css(page.arDeleteButton)), 2000);
-        let deleteButton = await driver.findElement(By.css(page.arDeleteButton));
-        assert(deleteButton);
+        try{
+            await driver.findElement(By.css(page.arDeleteButton));
+            var buttonExists = true;
+        }
+        catch(err){
+            var buttonExists = false;
+        }
         await driver.quit();
+        assert(buttonExists);
     });
 
     it('1B: Should click the Delete button and element is deleted', async () => {
@@ -27,8 +33,8 @@ describe ('Add/Remove Elements', async () => {
         catch(err){
             var buttonDeleted = true;
         }
-        assert(buttonDeleted);
         await driver.quit();
+        assert(buttonDeleted);
     });
 
 });

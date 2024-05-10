@@ -8,16 +8,16 @@ describe ('Checkboxes', async () => {
         let driver = await page.startDriver(page.cbUrl);
         await driver.findElement(By.css(page.cbCheckboxOne)).click();
         let checked = await driver.findElement(By.css(page.cbCheckboxOne)).getAttribute('checked');
-        assert(checked);
         await driver.quit();
+        assert(checked);
     });
 
     it ('3B: Should uncheck checkbox 2', async () => {
         let driver = await page.startDriver(page.cbUrl);
         await driver.findElement(By.css(page.cbCheckboxTwo)).click();
         let checked = await driver.findElement(By.css(page.cbCheckboxTwo)).getAttribute('checked');
-        assert(!checked);
         await driver.quit();
+        assert(!checked);
     });
 
 });

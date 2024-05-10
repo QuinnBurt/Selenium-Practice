@@ -20,8 +20,8 @@ describe ('Context Menu', async () => {
         catch(err){
             var alertExists = false;
         }
-        assert(alertExists);
         await driver.quit();
+        assert(alertExists);
     });
 
     it ('4B: Should trigger an alert with correct text', async () => {
@@ -29,8 +29,8 @@ describe ('Context Menu', async () => {
         await rightClickContextBox(driver);
         let alert = await driver.switchTo().alert();
         let alertText = await alert.getText();
-        assert(alertText == 'You selected a context menu');
         await driver.quit();
+        assert(alertText == 'You selected a context menu');
     });
     
     it ('4C: Should close the alert', async () => {
@@ -45,7 +45,7 @@ describe ('Context Menu', async () => {
         catch(err){
             var alertExists = false;
         }
-        assert(!alertExists)
         await driver.quit();
+        assert(!alertExists);
     });
 });

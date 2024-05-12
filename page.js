@@ -1,4 +1,5 @@
 const { Builder, Browser } = require('selenium-webdriver');
+require('chromedriver');
 const Chrome = require('selenium-webdriver/chrome');
 const options = new Chrome.Options();
 
